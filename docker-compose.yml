@@ -1,0 +1,14 @@
+version: '2'
+services:
+  frontend:
+    build: ./backend
+    ports:
+     - "8123:3000"
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
+    volumes:
+     - ./sample-service/api:/app/api
+  db:
+    build: ./db
